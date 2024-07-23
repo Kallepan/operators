@@ -1,0 +1,97 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Start Cluster",
+            "type": "shell",
+            "command": "minikube start && operator-sdk olm install",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Stop Cluster",
+            "type": "shell",
+            "command": "minikube delete --all",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "make manifests: rq-operator",
+            "type": "shell",
+            "command": "make",
+            "args": [
+                "generate",
+                "manifests"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/rq-operator"
+            },
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "make docker-build: rq-operator",
+            "type": "shell",
+            "command": "make",
+            "args": [
+                "docker-build",
+                "docker-push",
+                "IMG=docker.io/kallepan/rq-operator:0.0.1",
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/rq-operator"
+            },
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "make bundle: rq-operator",
+            "type": "shell",
+            "command": "make",
+            "args": [
+                "bundle",
+                "bundle-build",
+                "bundle-push",
+                "BUNDLE_IMG=docker.io/kallepan/rq-operator-bundle:0.0.1",
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/rq-operator"
+            },
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "make deploy: rq-operator",
+            "type": "shell",
+            "command": "operator-sdk",
+            "args": [
+                "run",
+                "bundle",
+                "docker.io/kallepan/rq-operator-bundle:0.0.1"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/rq-operator"
+            },
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}

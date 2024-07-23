@@ -1,0 +1,12 @@
+apiVersion: homelab.server.io/v1alpha1
+kind: ResourceQuotaConfig
+metadata:
+  name: resourcequotaconfig-label
+spec:
+  resourceQuotaName: rq-default
+  resourceQuotaSpec:
+    cpu: "2"
+    memory: 1Gi
+  namespaceSelector:
+    matchLabels:
+      app.kubernetes.io/part-of: kubeflow-profile
