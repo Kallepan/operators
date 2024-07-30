@@ -69,9 +69,6 @@ func (r *ResourceQuotaConfigReconciler) Reconcile(ctx context.Context, req ctrl.
 		return ctrl.Result{}, err
 	}
 
-	// XXX: Set default values, if not already set
-	//instance.Default()
-
 	// Fetch namespaces that match the selector or if not set all namespaces
 	namespaces := &corev1.NamespaceList{}
 	if err := r.fetchNamespaces(ctx, instance.Spec.NamespaceSelector, namespaces); err != nil {
@@ -154,14 +151,17 @@ func (r *ResourceQuotaConfigReconciler) createResourceQuota(ctx context.Context,
 func (r *ResourceQuotaConfigReconciler) patchResourceQuota(ctx context.Context, o client.ObjectKey, instance *homelabv1alpha1.ResourceQuotaConfig) error {
 	log := log.FromContext(ctx)
 
-	patch := client.MergeFrom(&corev1.ResourceQuota{})
-	rq := &corev1.ResourceQuota{
-		ObjectMeta: metav1.ObjectMeta{
-			Name:      o.Name,
-			Namespace: o.Namespace,
-		},
+	// Fetch the ResourceQuota
+	rq := &corev1.ResourceQuota{}
+	if err := r.Get(ctx, o, rq); err != nil {
+		log.Error(err, "Failed to get ResourceQuota")
+		return err
 	}
 
+	// Create a patch based on the original ResourceQuota
+	patch := client.MergeFrom(rq.DeepCopy())
+
+	// Apply new labels and spec
 	rq.Labels = instance.Spec.ResourceQuotaLabels
 	rq.Spec.Hard = instance.Spec.ResourceQuotaSpec
 
@@ -171,7 +171,6 @@ func (r *ResourceQuotaConfigReconciler) patchResourceQuota(ctx context.Context, 
 	}
 
 	return nil
-
 }
 
 func (r *ResourceQuotaConfigReconciler) containsLabels(selector map[string]string, labels map[string]string) bool {
