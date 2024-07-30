@@ -21,7 +21,7 @@ metadata:
         }
       ]
     capabilities: Basic Install
-    createdAt: "2024-07-23T05:32:37Z"
+    createdAt: "2024-07-30T08:38:02Z"
     operators.operatorframework.io/builder: operator-sdk-v1.35.0
     operators.operatorframework.io/project_layout: go.kubebuilder.io/v4
   name: rq-operator.v0.0.1
@@ -154,7 +154,7 @@ spec:
                 - --leader-elect
                 command:
                 - /manager
-                image: docker.io/kallepan/rq-operator:0.0.1
+                image: docker.io/kallepan/rq-operator-bundle:0.0.1
                 imagePullPolicy: Always
                 livenessProbe:
                   httpGet:
