@@ -27,8 +27,9 @@ make bundle-build bundle-push BUNDLE_IMG=$BUNDLE_IMG
 cd ../catalog
 
 CATALOG_IMG=${CATALOG_IMG_BASE}-catalog:$VERSION
-sed -i s/RQ_OPERATOR_BUNDLE_TAG/$RQ_OPERATOR_BUNDLE_TAG/g operator-template.yaml
-opm alpha render-template semver -o yaml < operator-template.yaml > homelab-catalog/catalog.yaml
+cp operator-template.yaml operator.yaml
+sed -i s/RQ_OPERATOR_BUNDLE_TAG/$RQ_OPERATOR_BUNDLE_TAG/g operator.yaml
+opm alpha render-template semver -o yaml < operator.yaml > homelab-catalog/catalog.yaml
 docker build --platform linux/amd64 -f homelab-catalog.Dockerfile -t $CATALOG_IMG .
 docker push $CATALOG_IMG
 

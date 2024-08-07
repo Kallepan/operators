@@ -21,7 +21,7 @@ metadata:
         }
       ]
     capabilities: Basic Install
-    createdAt: "2024-07-30T08:38:02Z"
+    createdAt: "2024-08-03T21:27:00Z"
     operators.operatorframework.io/builder: operator-sdk-v1.35.0
     operators.operatorframework.io/project_layout: go.kubebuilder.io/v4
   name: rq-operator.v0.0.1

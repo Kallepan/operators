@@ -1,0 +1,108 @@
+---
+defaultChannel: stable-v0
+name: rq-operator
+schema: olm.package
+---
+entries:
+- name: rq-operator.v0.0.1
+name: stable-v0
+package: rq-operator
+schema: olm.channel
+---
+image: docker.io/kallepan/rq-operator-bundle:0.0.1
+name: rq-operator.v0.0.1
+package: rq-operator
+properties:
+- type: olm.gvk
+  value:
+    group: homelab.server.io
+    kind: ResourceQuotaConfig
+    version: v1alpha1
+- type: olm.package
+  value:
+    packageName: rq-operator
+    version: 0.0.1
+- type: olm.csv.metadata
+  value:
+    annotations:
+      alm-examples: |-
+        [
+          {
+            "apiVersion": "homelab.server.io/v1alpha1",
+            "kind": "ResourceQuotaConfig",
+            "metadata": {
+              "labels": {
+                "app.kubernetes.io/created-by": "rq-operator",
+                "app.kubernetes.io/instance": "resourcequotaconfig-sample",
+                "app.kubernetes.io/managed-by": "kustomize",
+                "app.kubernetes.io/name": "resourcequotaconfig",
+                "app.kubernetes.io/part-of": "rq-operator"
+              },
+              "name": "resourcequotaconfig-sample"
+            },
+            "spec": null
+          }
+        ]
+      capabilities: Basic Install
+      createdAt: "2024-08-03T21:27:00Z"
+      operators.operatorframework.io/builder: operator-sdk-v1.35.0
+      operators.operatorframework.io/project_layout: go.kubebuilder.io/v4
+    apiServiceDefinitions: {}
+    crdDescriptions:
+      owned:
+      - description: ResourceQuotaConfig is the Schema for the resourcequotaconfigs
+          API
+        displayName: Resource Quota Config
+        kind: ResourceQuotaConfig
+        name: resourcequotaconfigs.homelab.server.io
+        specDescriptors:
+        - description: Labels for namespace selection by the operator to apply resource
+            quotas. By default (nil) it will match all namespaces. (This may not be
+            a good idea)
+          displayName: Namespace Selector
+          path: namespaceSelector
+        - description: 'Labels to apply to the resource quota By default it will be
+            "operator: rq-operator"'
+          displayName: Resource Quota Labels
+          path: resourceQuotaLabels
+        - description: Name to apply to the resource quota By default it will be "rq-default"
+          displayName: Resource Quota Name
+          path: resourceQuotaName
+        - description: 'Resourcequota spec to apply by default By default it will
+            apply cpu: 2, memory: 2Gi'
+          displayName: Resource Quota Spec
+          path: resourceQuotaSpec
+        statusDescriptors:
+        - displayName: Conditions
+          path: conditions
+        version: v1alpha1
+    description: ResourceQuota Controller
+    displayName: rq-operator
+    installModes:
+    - supported: false
+      type: OwnNamespace
+    - supported: false
+      type: SingleNamespace
+    - supported: false
+      type: MultiNamespace
+    - supported: true
+      type: AllNamespaces
+    keywords:
+    - resourcequota
+    links:
+    - name: Rq Operator
+      url: https://rq-operator.domain
+    maintainers:
+    - email: kajeepan.kandeepan@gmail.com
+      name: Kajeepan Kandeepan
+    maturity: alpha
+    provider:
+      name: Kajeepan Kandeepan
+relatedImages:
+- image: docker.io/kallepan/rq-operator-bundle:0.0.1
+  name: ""
+- image: docker.io/kallepan/rq-operator-bundle:0.0.1
+  name: ""
+- image: gcr.io/kubebuilder/kube-rbac-proxy:v0.15.0
+  name: ""
+schema: olm.bundle
