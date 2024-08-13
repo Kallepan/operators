@@ -5,8 +5,8 @@ A collection of custom kubernetes operators. The operators are written in Go and
 ## Commands
 
 ```bash
-mkdir -p rq-operator
-cd rq-operator
+mkdir -p homelab-operator
+cd homelab-operator
 
 operator-sdk init --domain=server.home --repo github.com/kallepan/operators
 

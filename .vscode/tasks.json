@@ -22,7 +22,7 @@
             "problemMatcher": []
         },
         {
-            "label": "make manifests: rq-operator",
+            "label": "make manifests: homelab-operator",
             "type": "shell",
             "command": "make",
             "args": [
@@ -30,7 +30,7 @@
                 "manifests"
             ],
             "options": {
-                "cwd": "${workspaceFolder}/rq-operator"
+                "cwd": "${workspaceFolder}/homelab-operator"
             },
             "problemMatcher": [],
             "group": {
@@ -39,16 +39,16 @@
             }
         },
         {
-            "label": "make docker-build: rq-operator",
+            "label": "make docker-build: homelab-operator",
             "type": "shell",
             "command": "make",
             "args": [
                 "docker-build",
                 "docker-push",
-                "IMG=docker.io/kallepan/rq-operator:0.0.1",
+                "IMG=docker.io/kallepan/homelab-operator:0.0.1",
             ],
             "options": {
-                "cwd": "${workspaceFolder}/rq-operator"
+                "cwd": "${workspaceFolder}/homelab-operator"
             },
             "problemMatcher": [],
             "group": {
@@ -57,17 +57,17 @@
             }
         },
         {
-            "label": "make bundle: rq-operator",
+            "label": "make bundle: homelab-operator",
             "type": "shell",
             "command": "make",
             "args": [
                 "bundle",
                 "bundle-build",
                 "bundle-push",
-                "BUNDLE_IMG=docker.io/kallepan/rq-operator-bundle:0.0.1",
+                "BUNDLE_IMG=docker.io/kallepan/homelab-bundle:0.0.1",
             ],
             "options": {
-                "cwd": "${workspaceFolder}/rq-operator"
+                "cwd": "${workspaceFolder}/homelab-operator"
             },
             "problemMatcher": [],
             "group": {
@@ -76,16 +76,16 @@
             }
         },
         {
-            "label": "make deploy: rq-operator",
+            "label": "make deploy: homelab-operator",
             "type": "shell",
             "command": "operator-sdk",
             "args": [
                 "run",
                 "bundle",
-                "docker.io/kallepan/rq-operator-bundle:0.0.1"
+                "docker.io/kallepan/homelab-bundle:0.0.1"
             ],
             "options": {
-                "cwd": "${workspaceFolder}/rq-operator"
+                "cwd": "${workspaceFolder}/homelab-operator"
             },
             "problemMatcher": [],
             "group": {

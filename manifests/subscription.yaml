@@ -2,11 +2,11 @@
 apiVersion: operators.coreos.com/v1alpha1
 kind: Subscription
 metadata:
-  name: rq-operator
+  name: homelab-operator
   namespace: homelab-operators
 spec:
   channel: "alpha"
   installPlanApproval: "Automatic"
-  name: rq-operator
+  name: homelab-operator
   source: homelab-catalog
   sourceNamespace: homelab-operators
