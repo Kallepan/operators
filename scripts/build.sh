@@ -12,7 +12,7 @@ RQ_OPERATOR_BUNDLE_TAG=0.0.1
 cd rq-operator
 
 # Generate manifests e.g. CRD, RBAC etc.
-# make generate manifests
+make generate manifests
 
 # Build the docker image
 IMG=$IMG_TAG_BASE:$VERSION

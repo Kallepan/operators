@@ -4,9 +4,9 @@ kind: CustomResourceDefinition
 metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.13.0
-  name: resourcequotaconfigs.homelab.server.io
+  name: resourcequotaconfigs.homelab.server.home
 spec:
-  group: homelab.server.io
+  group: homelab.server.home
   names:
     kind: ResourceQuotaConfig
     listKind: ResourceQuotaConfigList

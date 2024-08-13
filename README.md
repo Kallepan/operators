@@ -8,7 +8,7 @@ A collection of custom kubernetes operators. The operators are written in Go and
 mkdir -p rq-operator
 cd rq-operator
 
-operator-sdk init --domain=server.io --repo github.com/kallepan/operators
+operator-sdk init --domain=server.home --repo github.com/kallepan/operators
 
 # plugins=go/v4 is required for Apple Silicon
 operator-sdk create api --group homelab --version v1alpha1 --kind ResourceQuotaConfig --resource --controller --plugins=go/v4 --namespaced=false

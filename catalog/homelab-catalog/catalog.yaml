@@ -15,7 +15,7 @@ package: rq-operator
 properties:
 - type: olm.gvk
   value:
-    group: homelab.server.io
+    group: homelab.server.home
     kind: ResourceQuotaConfig
     version: v1alpha1
 - type: olm.package
@@ -28,7 +28,7 @@ properties:
       alm-examples: |-
         [
           {
-            "apiVersion": "homelab.server.io/v1alpha1",
+            "apiVersion": "homelab.server.home/v1alpha1",
             "kind": "ResourceQuotaConfig",
             "metadata": {
               "labels": {
@@ -44,7 +44,7 @@ properties:
           }
         ]
       capabilities: Basic Install
-      createdAt: "2024-08-03T21:27:00Z"
+      createdAt: "2024-08-13T17:43:58Z"
       operators.operatorframework.io/builder: operator-sdk-v1.35.0
       operators.operatorframework.io/project_layout: go.kubebuilder.io/v4
     apiServiceDefinitions: {}
@@ -54,7 +54,7 @@ properties:
           API
         displayName: Resource Quota Config
         kind: ResourceQuotaConfig
-        name: resourcequotaconfigs.homelab.server.io
+        name: resourcequotaconfigs.homelab.server.home
         specDescriptors:
         - description: Labels for namespace selection by the operator to apply resource
             quotas. By default (nil) it will match all namespaces. (This may not be

@@ -14,7 +14,7 @@ spec:
         API
       displayName: Resource Quota Config
       kind: ResourceQuotaConfig
-      name: resourcequotaconfigs.homelab.server.io
+      name: resourcequotaconfigs.homelab.server.home
       specDescriptors:
       - description: Labels for namespace selection by the operator to apply resource
           quotas. By default (nil) it will match all namespaces. (This may not be

@@ -44,7 +44,7 @@ func (r *ResourceQuotaConfig) SetupWebhookWithManager(mgr ctrl.Manager) error {
 
 // TODO(user): EDIT THIS FILE!  THIS IS SCAFFOLDING FOR YOU TO OWN!
 
-//+kubebuilder:webhook:path=/mutate-homelab-server-io-v1alpha1-resourcequotaconfig,mutating=true,failurePolicy=fail,sideEffects=None,groups=homelab.server.io,resources=resourcequotaconfigs,verbs=create;update,versions=v1alpha1,name=mresourcequotaconfig.kb.io,admissionReviewVersions=v1
+//+kubebuilder:webhook:path=/mutate-homelab-server-home-v1alpha1-resourcequotaconfig,mutating=true,failurePolicy=fail,sideEffects=None,groups=homelab.server.home,resources=resourcequotaconfigs,verbs=create;update,versions=v1alpha1,name=mresourcequotaconfig.kb.io,admissionReviewVersions=v1
 
 var _ webhook.Defaulter = &ResourceQuotaConfig{}
 
@@ -69,7 +69,7 @@ func (r *ResourceQuotaConfig) Default() {
 }
 
 // TODO(user): change verbs to "verbs=create;update;delete" if you want to enable deletion validation.
-//+kubebuilder:webhook:path=/validate-homelab-server-io-v1alpha1-resourcequotaconfig,mutating=false,failurePolicy=fail,sideEffects=None,groups=homelab.server.io,resources=resourcequotaconfigs,verbs=create;update,versions=v1alpha1,name=vresourcequotaconfig.kb.io,admissionReviewVersions=v1
+//+kubebuilder:webhook:path=/validate-homelab-server-home-v1alpha1-resourcequotaconfig,mutating=false,failurePolicy=fail,sideEffects=None,groups=homelab.server.home,resources=resourcequotaconfigs,verbs=create;update,versions=v1alpha1,name=vresourcequotaconfig.kb.io,admissionReviewVersions=v1
 
 type resourceQuotaConfigValidator struct {
 	client client.Client

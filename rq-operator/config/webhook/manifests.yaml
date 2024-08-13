@@ -10,12 +10,12 @@ webhooks:
     service:
       name: webhook-service
       namespace: system
-      path: /mutate-homelab-server-io-v1alpha1-resourcequotaconfig
+      path: /mutate-homelab-server-home-v1alpha1-resourcequotaconfig
   failurePolicy: Fail
   name: mresourcequotaconfig.kb.io
   rules:
   - apiGroups:
-    - homelab.server.io
+    - homelab.server.home
     apiVersions:
     - v1alpha1
     operations:
@@ -36,12 +36,12 @@ webhooks:
     service:
       name: webhook-service
       namespace: system
-      path: /validate-homelab-server-io-v1alpha1-resourcequotaconfig
+      path: /validate-homelab-server-home-v1alpha1-resourcequotaconfig
   failurePolicy: Fail
   name: vresourcequotaconfig.kb.io
   rules:
   - apiGroups:
-    - homelab.server.io
+    - homelab.server.home
     apiVersions:
     - v1alpha1
     operations:

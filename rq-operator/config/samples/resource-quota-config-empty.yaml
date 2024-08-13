@@ -1,4 +1,4 @@
-apiVersion: homelab.server.io/v1alpha1
+apiVersion: homelab.server.home/v1alpha1
 kind: ResourceQuotaConfig
 metadata:
   name: resourcequotaconfig-empty
