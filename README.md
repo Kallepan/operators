@@ -16,3 +16,13 @@ operator-sdk create api --group homelab --version v1alpha1 --kind ResourceQuotaC
 # Webhook
 operator-sdk create webhook --group homelab --version v1alpha1 --kind ResourceQuotaConfig --defaulting
 ```
+
+## Implementations
+
+### ResourceQuotaConfig
+
+This operator creates a ResourceQuotaConfig CRD which can be used to set default resource quotas for all namespaces. The operator watches for changes to the ResourceQuotaConfig CRD, namespace and resource quota objects and updates the resource quotas accordingly.
+
+### Kubeconfig Operator
+
+This operator creates a Kubeconfig CRD which can be used to create kubeconfig files for users. The operator watches for changes to the Kubeconfig CRD and namespace objects and updates the kubeconfig files. The operator creates a secret with the kubeconfig which can be used by the user to access resources inside the specified namespace.
