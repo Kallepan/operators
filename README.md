@@ -16,3 +16,9 @@ operator-sdk create api --group homelab --version v1alpha1 --kind ResourceQuotaC
 # Webhook
 operator-sdk create webhook --group homelab --version v1alpha1 --kind ResourceQuotaConfig --defaulting
 ```
+
+## Implementations
+
+### ResourceQuotaConfig
+
+This operator creates a ResourceQuotaConfig CRD which can be used to set default resource quotas for all namespaces. The operator watches for changes to the ResourceQuotaConfig CRD, namespace and resource quota objects and updates the resource quotas accordingly.
